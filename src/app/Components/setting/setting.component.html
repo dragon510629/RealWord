@@ -1,0 +1,31 @@
+<div class="wapper">
+    <h1 class="text">Your Settings</h1>
+    <form (ngSubmit)="update()">
+        <div class="form-group">
+            <input name="pictuer" type="text" class="form-control" aria-describedby="emailHelp" placeholder="URL of profile picture"
+                [(ngModel)]="updateuser.user.image">
+        </div>
+        <div class="form-group">
+            <input name="text" type="email" class="form-control"
+                [(ngModel)]="updateuser.user.username">
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" placeholder="Short bio about you" rows="8" [(ngModel)]="updateuser.user.bio" [ngModelOptions]="{standalone: true}"></textarea>
+        </div>    
+        <div class="form-group">
+            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Email" [(ngModel)]="updateuser.user.email">
+        </div>  
+        <div class="form-group">
+            <input  type="password" class="form-control"
+                [(ngModel)]="updateuser.user.password"
+                [ngModelOptions]="{standalone: true}"
+            >
+        </div>
+        <button type="submit" class="btn btn-lg btn-success">Update Setting</button>
+    </form>
+
+    <hr />
+    <button class="btn btn-primary" (click)="logout()"> Or click here to logout. </button>
+
+</div>

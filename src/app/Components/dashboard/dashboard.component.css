@@ -1,0 +1,17 @@
+.wapper{
+    margin-top:50px;
+    padding:0px;
+}
+h1{
+    color:red;
+}
+.title{
+    font-size:2em;
+    font-weight: normal;
+}   
+.page-link{
+    float:left;
+}
+.page-item{
+    float:left;
+}

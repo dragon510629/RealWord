@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <a class="logo navbar-brand mb-2 h1" href="#">Conduit</a>
+        <ul class="nav">
+            <li class="nav-item">
+                <a routerLink="/" class="nav-link disabled" href="#">Home</a>
+            </li>
+            <div *ngIf="!isShowRight"  class="nav">
+                <li class="nav-item">
+                    <a routerLink="login" class="nav-link disabled" href="#">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="register" class="nav-link disabled" href="#">Sign Up</a>
+                </li>
+            </div> 
+            <div *ngIf="isShowRight" class="nav">
+                <li class="nav-item">
+                    <a routerLink="editor" class="nav-link" href="#"><i class="fas fa-font"></i>New Article </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="setting" class="nav-link" href="#"><i class="fas fa-cog"></i>Setting</a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link">{{username}}</span>
+                </li>
+            </div>
+        </ul>
+    </div>
+</nav>

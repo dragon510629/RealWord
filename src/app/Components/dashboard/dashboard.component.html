@@ -1,0 +1,30 @@
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+</ul>
+
+<div class="wapper col-lg-9">
+    <div *ngFor="let item of data.articles" class="jumbotron">
+        <img src="https://static.productionready.io/images/smiley-cyrus.jpg" />
+        <h1 class="display-4">{{item.author.username}}</h1>
+        <h2 class="title">{{item.title}}</h2>
+        <hr class="my-4">
+        <p>{{item.description}}</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" (click)="previous()">Previous</a></li>
+        <li *ngFor="let p of pages;let i=index" class="page-item "><a (click)="setPage(i,$event)" class="page-link" >{{i+1}}</a></li>
+        <li class="page-item"><a class="page-link" (click)="next()">Next</a></li>
+    </ul>
+</div>

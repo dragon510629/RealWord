@@ -1,0 +1,14 @@
+<h1 class="text">Sign in</h1>
+<h6 class="color text">Need an account?</h6>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Email" [(ngModel)]="accounts.user.email">
+    </div>
+    <div class="form-group">
+        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+            [(ngModel)]="accounts.user.password">
+    </div>
+
+    <button type="submit" class="btn btn-success">Sign In</button>
+</form>
