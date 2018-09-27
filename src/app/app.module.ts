@@ -13,6 +13,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { SettingComponent } from './Components/setting/setting.component';
 import { EditorComponent } from './Components/editor/editor.component';
+import { ProfileComponent } from './Components/dashboard/profile/profile.component';
 
 const appRoutes : Routes = [
   {
@@ -39,6 +40,10 @@ const appRoutes : Routes = [
     path : '',
     redirectTo : '/dashboard',
     pathMatch : 'full'
+  },
+  {
+    path : 'profile/:name',
+    component : ProfileComponent 
   }
 ]
 
@@ -51,7 +56,8 @@ const appRoutes : Routes = [
     RegisterComponent,
     DashboardComponent,
     SettingComponent,
-    EditorComponent
+    EditorComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

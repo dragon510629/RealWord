@@ -19,7 +19,6 @@ export class DashboardComponent implements OnInit {
   get(){
     this.articleService.getArticle(this.page).subscribe((data)=>{
       this.data = data;
-      console.log(data);
       this.pages = new Array(data['articlesCount']/10);
     });
   }

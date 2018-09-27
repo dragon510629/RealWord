@@ -1,0 +1,29 @@
+<div class="user-info">
+    <h1>{{user.profile.username}}</h1>
+    <img class="img-profile" src="{{user.profile.image}}" />
+
+    <button class="btn btn-sm action-btn btn-outline-secondary" (click)="Follow()" >
+        <i [ngClass]="{'fa-plus fas' : !user.profile.following }"></i>
+        <i [ngClass]="{'fa-minus fas' : user.profile.following }"></i>
+        <span *ngIf="!user.profile.following" >Follow holatutu</span>
+        <span *ngIf="user.profile.following" >Unfollow holatutu</span>
+    </button>
+
+</div>
+<hr/>
+<h2>My Post</h2>
+<div class="wapper">
+        <div *ngFor="let item of data.articles" class="jumbotron">
+            <img src="https://static.productionready.io/images/smiley-cyrus.jpg" />
+            <h1 class="display-4"><a [routerLink]="['/profile',item.author.username]">{{item.author.username}}</a></h1>
+            <h2 class="title">{{item.title}}</h2>
+            <hr class="my-4">
+            <p>{{item.description}}</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" (click)="previous()">Previous</a></li>
+            <li *ngFor="let p of pages;let i=index" class="page-item "><a (click)="setPage(i,$event)" class="page-link" >{{i+1}}</a></li>
+            <li class="page-item"><a class="page-link" (click)="next()">Next</a></li>
+        </ul>
+</div>

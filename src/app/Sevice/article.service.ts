@@ -19,4 +19,7 @@ export class ArticleService {
     getArticle(onpage){
         return  this.http.get(`${this.URL}/api/articles?limit=10&offset=${onpage}`)
     }
+    getArticlebyauthor(username){
+        return this.http.get(`${this.URL}/api/articles?author=${username}`)
+    }
 }

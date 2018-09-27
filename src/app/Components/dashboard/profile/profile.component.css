@@ -1,0 +1,15 @@
+.user-info{
+    background-color:#DDDDDD;
+    width: 100%;
+}
+.img-profile{
+    margin-left:44%;
+    border-radius: 72px;
+}
+h1{
+    color:#FF4040;
+    text-align: center;
+}
+.flow{
+    float:right;
+}
