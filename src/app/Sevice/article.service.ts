@@ -17,9 +17,12 @@ export class ArticleService {
         });
     }
     getArticle(onpage){
-        return  this.http.get(`${this.URL}/api/articles?limit=10&offset=${onpage}`)
+        return  this.http.get(`${this.URL}/api/articles?limit=10&offset=${onpage}`);
     }
     getArticlebyauthor(username){
-        return this.http.get(`${this.URL}/api/articles?author=${username}`)
+        return this.http.get(`${this.URL}/api/articles?author=${username}`);
+    }
+    getSingleArticle(slug){
+        return this.http.get(`${this.URL}/api/articles/${slug}`);
     }
 }

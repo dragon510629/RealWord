@@ -20,7 +20,7 @@
         <h2 class="title">{{item.title}}</h2>
         <hr class="my-4">
         <p>{{item.description}}</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <a [routerLink]="['/article',item.slug]" class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
     <ul class="pagination">
         <li class="page-item"><a class="page-link" (click)="previous()">Previous</a></li>

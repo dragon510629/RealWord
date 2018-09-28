@@ -14,6 +14,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { SettingComponent } from './Components/setting/setting.component';
 import { EditorComponent } from './Components/editor/editor.component';
 import { ProfileComponent } from './Components/dashboard/profile/profile.component';
+import { ArticleComponent } from './Components/article/article.component';
 
 const appRoutes : Routes = [
   {
@@ -44,6 +45,10 @@ const appRoutes : Routes = [
   {
     path : 'profile/:name',
     component : ProfileComponent 
+  },
+  {
+    path : 'article/:slug',
+    component : ArticleComponent 
   }
 ]
 
@@ -57,7 +62,8 @@ const appRoutes : Routes = [
     DashboardComponent,
     SettingComponent,
     EditorComponent,
-    ProfileComponent
+    ProfileComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
