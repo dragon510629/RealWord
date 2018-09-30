@@ -17,7 +17,8 @@
                 placeholder="Email" [(ngModel)]="updateuser.user.email">
         </div>  
         <div class="form-group">
-            <input  type="password" class="form-control"
+            <input  type="password" class="form-control" 
+                required = "required"
                 [(ngModel)]="updateuser.user.password"
                 [ngModelOptions]="{standalone: true}"
             >

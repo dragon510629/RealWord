@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Injectable({
     providedIn: 'root'
@@ -24,5 +25,24 @@ export class ArticleService {
     }
     getSingleArticle(slug){
         return this.http.get(`${this.URL}/api/articles/${slug}`);
+    }
+    addComment(comment,slug){
+        return this.http.post(`${this.URL}/api/articles/${slug}/comments`,comment,{
+            headers: new HttpHeaders({
+                'Authorization': `Token ${this.token}`
+            })
+        });
+    }
+
+    getComment(slug){
+        return this.http.get(`${this.URL}/api/articles/${slug}/comments`);
+    }
+
+    deleteComment(slug,id){
+        return this.http.delete(`${this.URL}/api/articles/${slug}/comments/${id}`,{
+            headers: new HttpHeaders({
+                'Authorization': `Token ${this.token}`
+            })
+        });
     }
 }

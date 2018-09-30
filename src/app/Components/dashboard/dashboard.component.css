@@ -8,6 +8,9 @@ h1{
 .title{
     font-size:2em;
     font-weight: normal;
+}
+.pagination{
+    flex-wrap: wrap;
 }   
 .page-link{
     float:left;

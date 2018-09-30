@@ -35,11 +35,11 @@ export class SettingComponent implements OnInit {
     update() {
         console.log(this.updateuser);
         this.userService.update(this.updateuser).subscribe((data:any) => {
-            console.log(data);
+            swal('Gotcha!','Update Complate', 'success');
         });
     }
     getProfile() {
-        this.userService.getProfile(this.updateuser).subscribe((data: any) => {
+        this.userService.getProfile(this.updateuser.user.username).subscribe((data: any) => {
             this.updateuser.user.image = data.profile.image;
             this.updateuser.user.bio = data.profile.bio;
         });

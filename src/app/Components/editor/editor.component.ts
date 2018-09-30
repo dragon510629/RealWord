@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../../Module/article';
 import { ArticleService } from '../../Sevice/article.service';
+import swal from 'sweetalert';
 
 @Component({
     selector: 'app-editor',
@@ -20,7 +21,8 @@ export class EditorComponent implements OnInit {
                 "body": "",
                 "tagList": []
             }
-        }   
+        }
+           
     }
     upArticle(){
         var i = 0;
@@ -40,7 +42,10 @@ export class EditorComponent implements OnInit {
             }
         }
         this.articleService.upArticle(this.article).subscribe((data)=>{
-            console.log(data);
+            window.location.href = '/dashboard';
+            swal('Gotcha!','Up Complate', 'success');
+        },(err)=>{
+            swal('Error', 'Up article fail', 'error');
         });
     }
 }

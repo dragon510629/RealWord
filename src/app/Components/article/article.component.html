@@ -1,3 +1,34 @@
-<p>
-  article works!
-</p>
+<div class="wapper">
+    <h1 class="text">{{article.article.title}}</h1>
+    <img class="img-profile" src="{{article.article.author.image}}" />
+    <h3 class="text">{{article.article.author.username}}</h3>
+    <!-- <button class="btn btn-sm action-btn btn-outline-secondary" (click)="Follow()">
+    <i [ngClass]="{'fa-plus fas' : !user.profile.following }"></i>
+    <i [ngClass]="{'fa-minus fas' : user.profile.following }"></i>
+    <span *ngIf="!article.article.author.following">Follow holatutu</span>
+    <span *ngIf="article.article.author.following">Unfollow holatutu</span>
+  </button> -->
+</div>
+<div class="comment">
+    <form (ngSubmit)="submitMethod()">
+        <div class="form-group">
+            <textarea class="form-control" placeholder="Please add comment " rows="8" [(ngModel)]="comment.comment.body"
+                [ngModelOptions]="{standalone: true}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-lg btn-success">Post</button>
+    </form>
+
+    <div style="border:1px solid green;margin-top:20px;" class="showcomment" *ngFor="let comment of comments" >
+            <h5>{{comment.body}}</h5>
+            <hr/>
+            <img class="img-profile" src="{{article.article.author.image}}" />  
+            <h3>{{comment.author.username}}</h3>
+            
+            <button *ngIf="usernamecurrent.user.username == comment.author.username"  type="button" class="btn btn-danger" 
+                (click)="deleteComment(comment.id)" 
+            >
+                Delete
+            </button>
+            
+    </div>
+</div>

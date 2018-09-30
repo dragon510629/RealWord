@@ -44,4 +44,14 @@ export class UserService {
             })
         });
     }
+
+
+    getCurrentUser(){
+        return this.http.get(`${this.URL}/api/user`,{
+            headers: new HttpHeaders({
+                'Authorization': `Token ${this.Token}`
+            })
+        });
+    }
+
 }

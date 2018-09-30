@@ -1,0 +1,15 @@
+.wapper{
+    background-color:black;
+    height: 200px;
+}
+.text{
+    color:white;
+}
+img{
+    height: 50px;
+    float:left;
+}
+.comment{
+    width: 80%;
+    margin:30px auto;
+}
