@@ -16,6 +16,8 @@ import { EditorComponent } from './Components/editor/editor.component';
 import { ProfileComponent } from './Components/dashboard/profile/profile.component';
 import { ArticleComponent } from './Components/article/article.component';
 import { EditComponent } from './Components/editor/edit/edit.component';
+import { TagComponent } from './Components/dashboard/tag/tag.component';
+import { FeedComponent } from './Components/dashboard/feed/feed.component';
 
 const appRoutes : Routes = [
   {
@@ -54,6 +56,14 @@ const appRoutes : Routes = [
   {
     path : 'editor/:id',
     component : EditComponent 
+  },
+  {
+    path : 'tag/:tag',
+    component : TagComponent
+  },
+  {
+    path : 'feed',
+    component : FeedComponent
   }
 ]
 
@@ -69,7 +79,9 @@ const appRoutes : Routes = [
     EditorComponent,
     ProfileComponent,
     ArticleComponent,
-    EditComponent
+    EditComponent,
+    TagComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../../Sevice/article.service';
+import { ArticleService } from '../../../Sevice/article.service';
 
 @Component({
-    selector: 'app-dashboard',
-    templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.css']
+  selector: 'app-feed',
+  templateUrl: './feed.component.html',
+  styleUrls: ['./feed.component.css']
 })
-export class DashboardComponent implements OnInit {
-    public page: number = 0;
+export class FeedComponent implements OnInit {
+  public page: number = 0;
     public data: any = {};
     public pages: Array<number>;
-    public tag : any = {};
     constructor(private articleService: ArticleService) { }
 
     ngOnInit() {
         this.get();
-        this.getTag();
     }
 
     get() {
-        this.articleService.getArticle(this.page).subscribe((data) => {
+        this.articleService.getFeed(this.page).subscribe((data) => {
             this.data = data;
             this.pages = new Array(data['articlesCount'] / 10);
         });
@@ -37,10 +35,4 @@ export class DashboardComponent implements OnInit {
         this.get();
     }
 
-    getTag(){
-        this.articleService.getTag().subscribe(data=>{
-            this.tag = data;
-            console.log(this.tag.tags);
-        });
-    }
 }

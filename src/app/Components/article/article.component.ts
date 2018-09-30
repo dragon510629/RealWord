@@ -24,22 +24,26 @@ export class ArticleComponent implements OnInit {
             article : {
                 title : "",
                 author : {
-                    image : ""
+                    image : "",
+                    username : ""
                 }
             }
         }
         this.comment = {
             comment : {
-                body : ""
+                body : []
             }
         }
-        this.comments = {
-            comments : {
-              body : "",
-              author : {
+        this.comments = []
+        this.usernamecurrent = {
+            user : {
                 username : ""
-              }
-            }  
+            }
+        }
+        this.user = {
+            profile : {
+                following : true
+            }
         }
         this.getCurrentUser();
         this.activatedRoute.params.subscribe(params => {

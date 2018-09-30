@@ -23,6 +23,11 @@ export class EditComponent implements OnInit {
     constructor(private router: Router, private activatedRoute: ActivatedRoute , private articleService : ArticleService , private userservice : UserService) { }
 
     ngOnInit() {
+        this.article = {
+            article : {
+                
+            }
+        }
         this.activatedRoute.params.subscribe(params => {
             this.slug = params['id'];
             this.getArticle();

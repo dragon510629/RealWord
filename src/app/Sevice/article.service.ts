@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TouchSequence } from 'selenium-webdriver';
+import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
     providedIn: 'root'
@@ -54,5 +55,17 @@ export class ArticleService {
     }
     unfavoriteArticle(slug){
         return this.http.delete(`${this.URL}/api/articles/${slug}/favorite`,this.httpOptions);
+    }
+
+    getTag(){
+        return this.http.get(`${this.URL}/api/tags`);
+    }
+
+    getAricleByTag(page,tag){
+        return this.http.get(`${this.URL}/api/articles?limit=10&tag=${tag}&offset=${page}`);
+    }
+
+    getFeed(page){
+        return this.http.get(`${this.URL}/api/articles/feed?limit=10&offset=${page}`,this.httpOptions);
     }
 }

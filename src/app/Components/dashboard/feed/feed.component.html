@@ -1,0 +1,15 @@
+<div class="wapper col-lg-9">
+  <div *ngFor="let item of data.articles" class="jumbotron">
+      <img src="https://static.productionready.io/images/smiley-cyrus.jpg" />
+      <h1 class="display-4"><a [routerLink]="['/profile',item.author.username]">{{item.author.username}}</a></h1>
+      <h2 class="title">{{item.title}}</h2>
+      <hr class="my-4">
+      <p>{{item.description}}</p>
+      <a [routerLink]="['/article',item.slug]" class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+  <ul class="pagination">
+      <li class="page-item"><a class="page-link" (click)="previous()">Previous</a></li>
+      <li *ngFor="let p of pages;let i=index" class="page-item "><a (click)="setPage(i,$event)" class="page-link">{{i+1}}</a></li>
+      <li class="page-item"><a class="page-link" (click)="next()">Next</a></li>
+  </ul>
+</div>

@@ -1,6 +1,5 @@
 .wapper{
     margin-top:50px;
-    padding:0px;
 }
 h1{
     color:red;
@@ -17,4 +16,17 @@ h1{
 }
 .page-item{
     float:left; 
+}
+.right{
+    max-width: 0%;
+}
+.tag-list{
+    flex-wrap: wrap;
+    display: flex;
+}
+.tag{
+    border-radius: 50%;
+    padding:5px;
+    background-color:#818a91;
+    color: beige;
 }
