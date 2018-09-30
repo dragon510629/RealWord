@@ -32,24 +32,20 @@ export class ProfileComponent implements OnInit {
     getProfile(){
         this.userService.getProfile(this.username).subscribe((data)=>{
             this.user = data;
-            console.log(this.user);
         });
     }
     getArticlebyAuthor(){
         this.articleService.getArticlebyauthor(this.username).subscribe((data)=>{
             this.data = data;
-            console.log(this.data);
         });
     }
     Follow(){
         if(!this.user.profile.following){
             this.userService.followUser(this.username).subscribe((data)=>{
-                console.log(data);
                 this.getProfile();
             });
         }else{
             this.userService.deletefllow(this.username).subscribe((data)=>{
-                console.log(data);
                 this.getProfile();
             });
         }    

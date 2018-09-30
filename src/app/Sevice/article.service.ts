@@ -8,14 +8,17 @@ import { TouchSequence } from 'selenium-webdriver';
 export class ArticleService {
     private URL = 'https://conduit.productionready.io';
     private token = localStorage.getItem('token');
-    constructor(public http: HttpClient) { }
-
-    upArticle(articles){
-        return this.http.post(`${this.URL}/api/articles`,articles,{
+    private httpOptions : any ;
+    constructor(public http: HttpClient) { 
+        this.httpOptions = {
             headers: new HttpHeaders({
                 'Authorization': `Token ${this.token}`
             })
-        });
+        };
+    }
+
+    upArticle(articles){
+        return this.http.post(`${this.URL}/api/articles`,articles,this.httpOptions);
     }
     getArticle(onpage){
         return  this.http.get(`${this.URL}/api/articles?limit=10&offset=${onpage}`);
@@ -24,14 +27,10 @@ export class ArticleService {
         return this.http.get(`${this.URL}/api/articles?author=${username}`);
     }
     getSingleArticle(slug){
-        return this.http.get(`${this.URL}/api/articles/${slug}`);
+        return this.http.get(`${this.URL}/api/articles/${slug}`,this.httpOptions);
     }
     addComment(comment,slug){
-        return this.http.post(`${this.URL}/api/articles/${slug}/comments`,comment,{
-            headers: new HttpHeaders({
-                'Authorization': `Token ${this.token}`
-            })
-        });
+        return this.http.post(`${this.URL}/api/articles/${slug}/comments`,comment,this.httpOptions);
     }
 
     getComment(slug){
@@ -39,10 +38,21 @@ export class ArticleService {
     }
 
     deleteComment(slug,id){
-        return this.http.delete(`${this.URL}/api/articles/${slug}/comments/${id}`,{
-            headers: new HttpHeaders({
-                'Authorization': `Token ${this.token}`
-            })
-        });
+        return this.http.delete(`${this.URL}/api/articles/${slug}/comments/${id}`,this.httpOptions);
+    }
+
+    deleteArticle(slug){
+        return this.http.delete(`${this.URL}/api/articles/${slug}`,this.httpOptions);
+    }
+
+    updateArticle(article,slug){
+        return this.http.put(`${this.URL}/api/articles/${slug}`,article,this.httpOptions);
+    }
+
+    favoriteArticle(slug){
+        return this.http.post(`${this.URL}/api/articles/${slug}/favorite`,{},this.httpOptions);
+    }
+    unfavoriteArticle(slug){
+        return this.http.delete(`${this.URL}/api/articles/${slug}/favorite`,this.httpOptions);
     }
 }

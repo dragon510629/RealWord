@@ -2,12 +2,23 @@
     <h1 class="text">{{article.article.title}}</h1>
     <img class="img-profile" src="{{article.article.author.image}}" />
     <h3 class="text">{{article.article.author.username}}</h3>
-    <!-- <button class="btn btn-sm action-btn btn-outline-secondary" (click)="Follow()">
-    <i [ngClass]="{'fa-plus fas' : !user.profile.following }"></i>
-    <i [ngClass]="{'fa-minus fas' : user.profile.following }"></i>
-    <span *ngIf="!article.article.author.following">Follow holatutu</span>
-    <span *ngIf="article.article.author.following">Unfollow holatutu</span>
-  </button> -->
+    <div *ngIf="article.article.author.username == usernamecurrent.user.username"  class="text">
+        <button type="button" class="btn btn-success" ><a [routerLink]="['/editor',slug]">Edit</a></button>
+        <button type="button" class="btn btn-danger "  (click)="deleteArticle()" >Delete</button>        
+    </div>
+    <div *ngIf="article.article.author.username != usernamecurrent.user.username"  class="text">
+        <button class="btn btn-sm action-btn btn-outline-secondary" (click)="Follow()" >
+            <i [ngClass]="{'fa-plus fas' : !user.profile.following }"></i>
+            <i [ngClass]="{'fa-minus fas' : user.profile.following }"></i>
+            <span *ngIf="!user.profile.following" >Follow holatutu</span>
+            <span *ngIf="user.profile.following" >Unfollow holatutu</span>
+        </button>        
+        <button class="btn btn-sm action-btn btn-outline-secondary" (click)="favoriteArticle()" >
+            <i class="fab fa-gratipay"></i>
+            <span *ngIf="!article.article.favorited" > Favorite Article </span>
+            <span *ngIf="article.article.favorited" > Unfavorite Article </span>
+        </button>    
+    </div>
 </div>
 <div class="comment">
     <form (ngSubmit)="submitMethod()">

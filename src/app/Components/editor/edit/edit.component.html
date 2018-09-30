@@ -1,0 +1,20 @@
+<div class="wapper">
+  <form (ngSubmit)="updateArticle()">
+      <div class="form-group">
+          <input name="pictuer" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Article Title"
+              [(ngModel)]="article.article.title">
+      </div>
+      <div class="form-group">
+          <input name="text" type="email" class="form-control" placeholder="What's this article about?" [(ngModel)]="article.article.body">
+      </div>
+      <div class="form-group">
+          <textarea class="form-control" placeholder="Write your article (in markdown)" rows="8" [(ngModel)]="article.article.description"
+              [ngModelOptions]="{standalone: true}"></textarea>
+      </div>
+      <div class="form-group">
+          <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Enter tags" [(ngModel)]="string">
+      </div>
+      <button type="submit" class="btn btn-lg btn-success">Publish Article</button>
+  </form>
+</div>
