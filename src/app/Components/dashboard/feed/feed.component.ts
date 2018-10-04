@@ -13,6 +13,11 @@ export class FeedComponent implements OnInit {
     constructor(private articleService: ArticleService) { }
 
     ngOnInit() {
+        const authToken = localStorage.getItem('token');
+        if (authToken === null) {
+            window.location.href = '/login';
+            return;
+        }
         this.get();
     }
 

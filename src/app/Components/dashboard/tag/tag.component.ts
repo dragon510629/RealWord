@@ -22,8 +22,7 @@ export class TagComponent implements OnInit {
             this.tag = params['tag'];
             this.getAricleTag();
             
-        });
-        console.log(this.tag);
+        }); 
     }
     getAricleTag() {
         this.articleService.getAricleByTag(this.page,this.tag).subscribe(data=>{

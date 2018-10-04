@@ -40,7 +40,6 @@ export class DashboardComponent implements OnInit {
     getTag(){
         this.articleService.getTag().subscribe(data=>{
             this.tag = data;
-            console.log(this.tag.tags);
         });
     }
 }
